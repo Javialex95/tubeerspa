@@ -12,6 +12,7 @@ type Props = {
   captions: ReactNode[];
 };
 
+
 export default function HeroCarousel({ label, images, captions }: Props) {
   const total = images.length;
   const [current, setCurrent] = useState(0);
