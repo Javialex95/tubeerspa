@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   TuBeer Spa — Design System
+   Naturales, cálidos y sofisticados.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Tokens de marca
+   -------------------------------------------------------------------------- */
+@theme {
+  /* Paleta principal */
+  --color-forest: #14301e; /* R20 G48 B30 */
+  --color-malt: #fabc61; /* R250 G188 B97 */
+  --color-cream: #f9ebd3; /* R249 G235 B211 */
+
+  /* Paleta secundaria */
+  --color-foam: #fbf1e0; /* crema claro */
+  --color-barrel: #7c6240; /* madera / marrón */
+  --color-honey: #f0bd6b; /* dorado cálido */
+  --color-ale: #7a2e1c; /* rojizo / ámbar tostado */
+  --color-moss: #28352a; /* verde oscuro */
+
+  /* Neutros de soporte */
+  --color-sand: #ddd6cc; /* fondo piedra */
+  --color-stone: #b9b0a3;
+  --color-copper: #d9954a; /* acento para etiquetas / numeración */
+  --color-forest-deep: #0c1f13;
+
+  /* Tipografías (cargadas con next/font en app/layout.tsx) */
+  --font-heading: var(--font-playfair), "Alta", Georgia, serif;
+  --font-display: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  /* Tracking amplio (títulos en mayúsculas) */
+  --tracking-brand: 0.08em;
+  --tracking-label: 0.2em;
+  --tracking-eyebrow: 0.3em;
+
+  /* Animaciones */
+  --animate-fade-up: fade-up 1s ease-out both;
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tokens semánticos
+   Por defecto: fondo crema claro. Usa `theme-forest` en secciones oscuras.
+   -------------------------------------------------------------------------- */
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-forest);
+  --muted: var(--color-barrel);
+  --accent: var(--color-malt);
+  --border: color-mix(in oklab, var(--color-forest) 20%, transparent);
+}
+
+.theme-forest {
+  --background: var(--color-forest);
+  --foreground: var(--color-cream);
+  --muted: color-mix(in oklab, var(--color-cream) 75%, transparent);
+  --accent: var(--color-malt);
+  --border: color-mix(in oklab, var(--color-cream) 20%, transparent);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.theme-sand {
+  --background: var(--color-sand);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+}
+
+/* --------------------------------------------------------------------------
+   Jerarquía tipográfica
+   1. Título principal — primer punto de atención, mayor tamaño,
+      tracking amplio, en mayúsculas.
+   2. Subtítulo — light, tamaño medio, puede ir en minúsculas.
+   3. Texto descriptivo — ExtraLight, tamaño pequeño, interlineado amplio.
+   Las clases `text-h1`…`text-p` se pueden aplicar a cualquier elemento
+   y aceptan variantes (md:text-h2, hover:…).
+   -------------------------------------------------------------------------- */
+@utility text-h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-brand);
+  text-transform: uppercase;
+}
+
+@utility text-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-brand);
+  text-transform: uppercase;
+}
+
+@utility text-h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@utility text-h4 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+@utility text-h5 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+@utility text-p {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.04em;
+}
+
+/* Variantes de texto de apoyo */
+@utility text-p-sm {
+  font-family: var(--font-sans);
+  font-weight: 200;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}
+
+/* Título fino alternativo (Raleway Thin / ExtraLight) */
+@utility text-display-thin {
+  font-family: var(--font-display);
+  font-weight: 200;
+  letter-spacing: var(--tracking-brand);
+  text-transform: uppercase;
+}
+
+/* Línea dorada decorativa bajo títulos */
+@utility divider-malt {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background-color: var(--color-malt);
+}
+
+/* --------------------------------------------------------------------------
+   Estilos base
+   -------------------------------------------------------------------------- */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+  }
+
+  h1 {
+    @apply text-h1;
+  }
+  h2 {
+    @apply text-h2;
+  }
+  h3 {
+    @apply text-h3;
+  }
+  h4 {
+    @apply text-h4;
+  }
+  h5 {
+    @apply text-h5;
+  }
+  p {
+    @apply text-p;
+  }
+
+  ::selection {
+    background-color: var(--color-malt);
+    color: var(--color-forest);
+  }
+}
