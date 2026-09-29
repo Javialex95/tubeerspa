@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Montserrat, Playfair_Display, Raleway } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import CardInfo from "@/components/card-info";
 import Hero from "@/components/hero";
+import Location from "@/components/location";
+import Splash from "@/components/splash";
 import "./globals.css";
 
 // Títulos principales (sustituto web de "Alta")
@@ -35,9 +38,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${playfair.variable} ${raleway.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Splash />
         <Header />
         <main className="flex-1">
           <Hero />
+          <CardInfo />
+          <Location />
           {children}
         </main>
         <Footer />
