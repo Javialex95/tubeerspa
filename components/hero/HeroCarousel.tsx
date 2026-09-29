@@ -46,9 +46,11 @@ export default function HeroCarousel({ label, images, captions }: Props) {
 
   return (
     <section
+      id="inicio"
+      data-header-theme="forest"
       aria-roledescription="carrusel"
       aria-label={label}
-      className="theme-forest relative h-[88svh] min-h-140 w-full overflow-hidden select-none"
+      className="theme-forest relative h-[calc(100svh-var(--header-h))] min-h-140 w-full overflow-hidden select-none"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
       onFocus={() => setHovering(true)}
@@ -92,7 +94,8 @@ export default function HeroCarousel({ label, images, captions }: Props) {
       ))}
 
       {/* Velo para legibilidad del texto */}
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-forest-deep/85 via-forest-deep/35 to-forest-deep/20" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/40" />
+      <div className="pointer-events-none absolute inset-0 bg-radial from-black/60 via-black/25 via-45% to-transparent to-75%" />
 
       <div
         aria-live={autoplay ? "off" : "polite"}

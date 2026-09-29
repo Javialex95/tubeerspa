@@ -49,6 +49,65 @@
       transform: translateY(0);
     }
   }
+
+  /* Espuma de la jarra: se hincha y se ladea suavemente. */
+  --animate-foam: foam 3.75s ease-in-out infinite;
+  @keyframes foam {
+    0%,
+    100% {
+      transform: scale(1, 1) rotate(0deg);
+    }
+    30% {
+      transform: scale(1.03, 1.1) rotate(-1.5deg);
+    }
+    60% {
+      transform: scale(0.99, 0.96) rotate(1deg);
+    }
+  }
+
+  /* Burbujas de la jarra: suben y se desvanecen. */
+  --animate-bubble: bubble 2.29s ease-in infinite;
+  @keyframes bubble {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-70px);
+      opacity: 0;
+    }
+  }
+
+  /* Ondas de agua de la sección de cards: cada anillo se expande y se desvanece. */
+  --animate-ripple: ripple 6s ease-out infinite;
+  @keyframes ripple {
+    0% {
+      transform: scale(0.85);
+      opacity: 0.2;
+    }
+    35% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.1);
+      opacity: 0.2;
+    }
+  }
+
+  /* Centro de las ondas: flota como algo que se mece en el agua. */
+  --animate-float: float 6s ease-in-out infinite;
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) scale(1, 1);
+    }
+    50% {
+      transform: translateY(4px) scale(1.06, 0.92);
+    }
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -61,10 +120,26 @@
   --muted: var(--color-barrel);
   --accent: var(--color-malt);
   --border: color-mix(in oklab, var(--color-forest) 20%, transparent);
+
+  /* Alto del header (igual al logo); el hero lo resta del viewport */
+  --header-h: 4rem;
+  @media (width >= 48rem) {
+    --header-h: 5rem;
+  }
 }
 
 .theme-forest {
   --background: var(--color-forest);
+  --foreground: var(--color-cream);
+  --muted: color-mix(in oklab, var(--color-cream) 75%, transparent);
+  --accent: var(--color-malt);
+  --border: color-mix(in oklab, var(--color-cream) 20%, transparent);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.theme-black {
+  --background: #000;
   --foreground: var(--color-cream);
   --muted: color-mix(in oklab, var(--color-cream) 75%, transparent);
   --accent: var(--color-malt);
@@ -174,10 +249,29 @@
   background-color: var(--color-malt);
 }
 
+/* Oculta la barra de scroll sin desactivar el desplazamiento */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Estilos base
    -------------------------------------------------------------------------- */
 @layer base {
+  /* Scroll suave para los links de sección; compensa el header sticky */
+  html {
+    scroll-padding-top: 4rem;
+    @media (width >= 48rem) {
+      scroll-padding-top: 5rem;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);

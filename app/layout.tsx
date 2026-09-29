@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Montserrat, Playfair_Display, Raleway } from "next/font/google";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import CardInfo from "@/components/card-info";
 import Hero from "@/components/hero";
 import Location from "@/components/location";
+import Spaces from "@/components/spaces";
 import Splash from "@/components/splash";
 import "./globals.css";
 
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">
           <Hero />
           <CardInfo />
+          <Spaces />
           <Location />
           {children}
         </main>

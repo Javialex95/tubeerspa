@@ -45,7 +45,7 @@ export default function Splash() {
       onTransitionEnd={(e) => {
         if (leaving && e.target === e.currentTarget) setDone(true);
       }}
-      className={`theme-forest fixed inset-0 z-50 flex items-center justify-center transition-[translate,opacity] duration-1000 ease-in-out ${
+      className={`theme-forest fixed inset-0 z-[1000] flex items-center justify-center transition-[translate,opacity] duration-1000 ease-in-out ${
         leaving
           ? "translate-y-full motion-reduce:translate-y-0 motion-reduce:opacity-0"
           : ""

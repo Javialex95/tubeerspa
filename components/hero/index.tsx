@@ -22,9 +22,9 @@ export default function Hero() {
       captions={slides.map((s) => (
         <div
           key={s.src}
-          className="flex flex-col items-center gap-6 text-center"
+          className="flex flex-col items-center gap-6 text-center text-shadow-lg text-shadow-black/60"
         >
-          <h5 className="text-malt">{s.eyebrow}</h5>
+          {/* <h5 className="text-malt">{s.eyebrow}</h5> */}
           <span className="divider-malt" />
           <h1>{s.title}</h1>
           <p className="text-h4 text-display-thin">{s.subtitle}</p>
