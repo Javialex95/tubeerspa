@@ -115,7 +115,7 @@ export default function SpacesSlider({ label, slides }: Props) {
         ref={trackRef}
         tabIndex={0}
         aria-live={autoplay ? "off" : "polite"}
-        className="scrollbar-none flex min-h-0 flex-1 snap-x snap-mandatory gap-3 overflow-x-auto outline-none"
+        className="scrollbar-none flex min-h-0 flex-1 snap-x snap-mandatory gap-3 overflow-x-auto outline-none max-md:px-[6vw]"
       >
         {slides.map((slide, i) => (
           <div
@@ -132,7 +132,7 @@ export default function SpacesSlider({ label, slides }: Props) {
         ))}
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-6 px-6">
+      <div className="mt-8 flex items-center justify-center gap-4 px-6 md:gap-6">
         <button
           type="button"
           onClick={() => goTo(current - 1)}
@@ -142,7 +142,11 @@ export default function SpacesSlider({ label, slides }: Props) {
           <Chevron direction="left" />
         </button>
 
-        <div className="flex items-center gap-3">
+        <p aria-hidden className="text-p-sm min-w-12 text-center text-muted md:hidden">
+          {current + 1} / {total}
+        </p>
+
+        <div className="flex items-center gap-3 max-md:hidden">
           {slides.map((_, i) => (
             <button
               key={i}

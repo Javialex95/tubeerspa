@@ -2,16 +2,18 @@ import Image from "next/image";
 import BeerMugIcon from "./BeerMugIcon";
 import HeaderShell from "./HeaderShell";
 import MobileMenu from "./MobileMenu";
+import { booking } from "@/components/plans/data";
 
 // Links a las secciones de la landing (ids definidos en cada componente).
 const sections = [
   { href: "#experiencia", label: "Experiencia" },
+  { href: "#planes", label: "Planes" },
   { href: "#espacios", label: "Espacios" },
   { href: "#ubicacion", label: "Ubicación" },
 ];
 
 const contactClass =
-  "whitespace-nowrap rounded-full bg-malt px-4 py-2 font-semibold tracking-widest text-forest uppercase transition-colors hover:bg-honey focus-visible:bg-honey";
+  "whitespace-nowrap rounded-full bg-malt px-4 py-2 font-semibold tracking-widest text-forest uppercase hover-zoom hover:bg-honey focus-visible:bg-honey";
 
 // Server Component: renderiza el menú; HeaderShell solo sigue el tema de la sección visible.
 export default function Header() {
@@ -41,7 +43,7 @@ export default function Header() {
             className="absolute inset-0 h-16 w-auto opacity-0 transition-opacity duration-500 group-data-[theme=cream]:opacity-100 md:h-20"
           />
         </a>
-        <ul className="hidden items-center gap-8 text-sm md:flex tracking-widest uppercase">
+        <ul className="hidden items-center gap-8 text-sm font-normal md:flex tracking-widest uppercase">
           {sections.map((s) => (
             <li key={s.href}>
               <a
@@ -53,13 +55,14 @@ export default function Header() {
             </li>
           ))}
           <li className="flex items-center gap-1">
-            {/* TODO: enlazar a contacto */}
-            <button
-              type="button"
+            <a
+              href={booking.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`${contactClass} group-data-[theme=cream]:bg-forest group-data-[theme=cream]:text-cream group-data-[theme=cream]:hover:bg-moss group-data-[theme=cream]:focus-visible:bg-moss md:px-5`}
             >
               Contactar
-            </button>
+            </a>
 
             <BeerMugIcon className="size-12 transition-colors duration-500" />
           </li>
@@ -74,17 +77,21 @@ export default function Header() {
                 <li key={s.href}>
                   <a
                     href={s.href}
-                    className="text-h4 transition-colors hover:text-malt focus-visible:text-malt"
+                    className="text-h4 font-normal! transition-colors hover:text-malt focus-visible:text-malt"
                   >
                     {s.label}
                   </a>
                 </li>
               ))}
             </ul>
-            {/* TODO: enlazar a contacto */}
-            <button type="button" className={`${contactClass} mt-auto text-xs`}>
+            <a
+              href={booking.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${contactClass} mt-auto text-center text-xs`}
+            >
               Contactar
-            </button>
+            </a>
           </MobileMenu>
         </div>
       </nav>

@@ -4,7 +4,9 @@ import Footer from "@/components/Footer";
 import Header from "@/components/header";
 import CardInfo from "@/components/card-info";
 import Hero from "@/components/hero";
+import Journey from "@/components/journey";
 import Location from "@/components/location";
+import Plans from "@/components/plans";
 import Spaces from "@/components/spaces";
 import Splash from "@/components/splash";
 import "./globals.css";
@@ -44,6 +46,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">
           <Hero />
           <CardInfo />
+          {/* Móvil: carta de planes · tablet y escritorio: recorrido */}
+          <div id="planes">
+            <Plans />
+            <Journey />
+          </div>
           <Spaces />
           <Location />
           {children}

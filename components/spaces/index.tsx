@@ -79,7 +79,31 @@ function GroupView({ group }: { group: Group }) {
   );
 }
 
-// Slider de espacios: una foto grande, luego tres, luego dos… cada grupo es una diapositiva.
+// Móvil: una foto por diapositiva. Las verticales son más angostas para que quepan en la altura.
+function MobilePhoto({ photo }: { photo: Photo }) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-2xl ${
+        photo.orientation === "portrait" ? "aspect-3/4 w-[72vw]" : "aspect-4/3 w-[88vw]"
+      }`}
+    >
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        sizes="88vw"
+        draggable={false}
+        className="object-cover"
+      />
+    </div>
+  );
+}
+
+const mobileSlides = groups.flatMap((group) =>
+  group.photos.map((photo) => ({ key: photo.src, content: <MobilePhoto photo={photo} /> })),
+);
+
+// Slider de espacios: en móvil una foto por diapositiva; desde tablet, grupos de una, tres o dos fotos.
 export default function Spaces() {
   return (
     <section id="espacios" data-header-theme="black" aria-label="Nuestros espacios" className="theme-black flex h-svh min-h-140 flex-col py-12 md:py-16">
@@ -89,14 +113,20 @@ export default function Spaces() {
         <h2>Nuestros espacios</h2>
       </div>
 
-      <SpacesSlider
-        label="Galería de espacios"
-        slides={groups.map((group) => ({
-          key: group.photos[0].src,
-          fullWidth: group.layout === "single",
-          content: <GroupView group={group} />,
-        }))}
-      />
+      <div className="flex min-h-0 flex-1 flex-col md:hidden">
+        <SpacesSlider label="Galería de espacios" slides={mobileSlides} />
+      </div>
+
+      <div className="hidden min-h-0 flex-1 flex-col md:flex">
+        <SpacesSlider
+          label="Galería de espacios"
+          slides={groups.map((group) => ({
+            key: group.photos[0].src,
+            fullWidth: group.layout === "single",
+            content: <GroupView group={group} />,
+          }))}
+        />
+      </div>
     </section>
   );
 }

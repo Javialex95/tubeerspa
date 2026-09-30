@@ -3,10 +3,12 @@
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
 // Cada sección declara su fondo con `data-header-theme`; el header lo copia.
-type HeaderTheme = "forest" | "black" | "cream";
+type HeaderTheme = "hero" | "forest" | "clay" | "black" | "cream";
 
 const themeClass: Record<HeaderTheme, string> = {
+  hero: "bg-transparent text-cream",
   forest: "theme-forest",
+  clay: "theme-clay",
   black: "theme-black",
   cream: "bg-background text-foreground",
 };
@@ -14,7 +16,7 @@ const themeClass: Record<HeaderTheme, string> = {
 // Solo detecta el tema; los hijos reaccionan vía `group-data-[theme=...]`.
 export default function HeaderShell({ children }: { children: ReactNode }) {
   const headerRef = useRef<HTMLElement>(null);
-  const [theme, setTheme] = useState<HeaderTheme>("forest");
+  const [theme, setTheme] = useState<HeaderTheme>("hero");
 
   useEffect(() => {
     let frame = 0;
@@ -53,7 +55,7 @@ export default function HeaderShell({ children }: { children: ReactNode }) {
     <header
       ref={headerRef}
       data-theme={theme}
-      className={`${themeClass[theme]} group sticky top-0 z-50 transition-colors duration-500`}
+      className={`${themeClass[theme]} group sticky top-0 z-50 mb-[calc(var(--header-h)*-1)] transition-colors duration-500`}
     >
       {children}
     </header>

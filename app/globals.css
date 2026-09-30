@@ -26,6 +26,7 @@
   --color-stone: #b9b0a3;
   --color-copper: #d9954a; /* acento para etiquetas / numeración */
   --color-forest-deep: #0c1f13;
+  --color-clay: #916c52; /* marrón arcilla: fondo de planes */
 
   /* Tipografías (cargadas con next/font en app/layout.tsx) */
   --font-heading: var(--font-playfair), "Alta", Georgia, serif;
@@ -148,6 +149,24 @@
   color: var(--foreground);
 }
 
+.theme-clay {
+  --background: var(--color-clay);
+  --foreground: var(--color-foam);
+  --muted: var(--color-foam);
+  --accent: var(--color-malt);
+  --border: color-mix(in oklab, var(--color-foam) 30%, transparent);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Sobre el marrón, la tipografía fina pierde contraste: sube un escalón */
+.theme-clay :is(p, .text-p, .text-p-sm) {
+  font-weight: 400;
+}
+.theme-clay :is(h4, .text-h4) {
+  font-weight: 500;
+}
+
 .theme-sand {
   --background: var(--color-sand);
   background-color: var(--background);
@@ -249,6 +268,23 @@
   background-color: var(--color-malt);
 }
 
+/* Mini zoom al pasar el mouse o enfocar; se desactiva con "reducir movimiento" */
+@utility hover-zoom {
+  transition-property: transform, background-color, color, border-color;
+  transition-duration: 300ms;
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.05);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: background-color, color, border-color;
+    &:hover,
+    &:focus-visible {
+      transform: none;
+    }
+  }
+}
+
 /* Oculta la barra de scroll sin desactivar el desplazamiento */
 @utility scrollbar-none {
   scrollbar-width: none;
@@ -277,6 +313,12 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     font-weight: 300;
+  }
+
+  /* Tailwind v4 deja los botones con cursor por defecto */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
   }
 
   h1 {

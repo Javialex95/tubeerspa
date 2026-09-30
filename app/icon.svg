@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    .o { stroke: #14301e; }
+    @media (prefers-color-scheme: dark) { .o { stroke: #f9ebd3; } }
+  </style>
+  <path class="o" d="M340 190 L380 190 Q420 190 420 240 L420 320 Q420 370 380 370 L340 370" stroke-width="26"/>
+  <path class="o" d="M130 170 L150 440 Q152 456 170 456 L320 456 Q338 456 340 440 L360 170Z" fill="#FABC61" stroke-width="18"/>
+  <path d="M160 240 L175 436 L315 436 L330 240Z" fill="#954A24" opacity=".35"/>
+  <path d="M200 220 L202 420 M245 220 L247 420 M290 220 L292 420" stroke="#F9EBD3" stroke-width="10" opacity=".7"/>
+  <path class="o" d="M118 190 C95 150 130 110 170 125 C180 80 250 70 270 110 C300 80 360 100 355 145 C390 160 380 205 350 205 L130 205 C118 205 112 198 118 190Z" fill="#F9EBD3" stroke-width="16"/>
+</svg>
