@@ -67,7 +67,7 @@ export default function Location() {
               </a>
             </div>
           </div>
-          <BeerMugIcon className="size-32 shrink-0 sm:size-48 lg:size-64" />
+          {/* <BeerMugIcon className="size-32 shrink-0 sm:size-48 lg:size-64" /> */}
         </div>
       </div>
     </section>
