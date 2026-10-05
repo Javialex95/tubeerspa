@@ -1,5 +1,6 @@
 import BeerMugIcon from "@/components/header/BeerMugIcon";
-import { MAP_SRC, locationInfo } from "./info";
+import { booking } from "@/components/plans/data";
+import { MAP_LINK, MAP_SRC, locationInfo } from "./info";
 
 // Ubicación: mapa e información en dos filas (mobile) o dos columnas (md+).
 export default function Location() {
@@ -30,10 +31,41 @@ export default function Location() {
               {locationInfo.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
                   <dt className="text-h5 text-malt">{item.label}</dt>
-                  <dd className="text-p">{item.value}</dd>
+                  <dd className="text-p">
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline-offset-4 hover:underline"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      item.value
+                    )}
+                  </dd>
                 </div>
               ))}
             </dl>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href={booking.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="self-start whitespace-nowrap rounded-full bg-malt px-6 py-3 font-semibold tracking-widest text-forest uppercase hover-zoom hover:bg-honey focus-visible:bg-honey"
+              >
+                Contactar
+              </a>
+              <a
+                href={MAP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="whitespace-nowrap rounded-full border border-malt px-6 py-3 font-semibold tracking-widest text-malt uppercase hover-zoom hover:bg-malt hover:text-forest focus-visible:bg-malt focus-visible:text-forest"
+              >
+                Cómo llegar
+              </a>
+            </div>
           </div>
           <BeerMugIcon className="size-32 shrink-0 sm:size-48 lg:size-64" />
         </div>

@@ -1,12 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display, Raleway } from "next/font/google";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/seo/JsonLd";
+import { site } from "@/lib/site";
 import Header from "@/components/header";
 import CardInfo from "@/components/card-info";
 import Hero from "@/components/hero";
 import Journey from "@/components/journey";
 import Location from "@/components/location";
 import Plans from "@/components/plans";
+import Reviews from "@/components/reviews";
 import Spaces from "@/components/spaces";
 import Splash from "@/components/splash";
 import "./globals.css";
@@ -30,9 +33,25 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "TuBeer Spa",
-  description: "Bienestar inspirado en la cerveza. Sumérgete, vive el ritual.",
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: `%s · ${site.name}` },
+  description: site.description,
+  keywords: [...site.keywords],
+  applicationName: site.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "es_CO",
+    url: "/",
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+  },
+  twitter: { card: "summary_large_image", title: site.title, description: site.description },
+  robots: { index: true, follow: true },
 };
+
+export const viewport: Viewport = { themeColor: site.themeColor };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -41,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${playfair.variable} ${raleway.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd />
         <Splash />
         <Header />
         <main className="flex-1">
@@ -52,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Journey />
           </div>
           <Spaces />
+          <Reviews />
           <Location />
           {children}
         </main>
