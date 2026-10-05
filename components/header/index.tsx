@@ -9,6 +9,7 @@ const sections = [
   { href: "#experiencia", label: "Experiencia" },
   { href: "#planes", label: "Planes" },
   { href: "#espacios", label: "Espacios" },
+  { href: "#opiniones", label: "Reseñas" },
   { href: "#ubicacion", label: "Ubicación" },
 ];
 

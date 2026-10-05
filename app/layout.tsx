@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display, Raleway } from "next/font/google";
+import Faq from "@/components/faq";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/seo/JsonLd";
 import { site } from "@/lib/site";
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
           <Spaces />
           <Reviews />
+          <Faq />
           <Location />
           {children}
         </main>

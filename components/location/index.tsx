@@ -9,7 +9,7 @@ export default function Location() {
       id="ubicacion"
       data-header-theme="forest"
       aria-label="Ubicación TuBeer Spa"
-      className="theme-forest h-screen"
+      className="theme-forest min-h-screen"
     >
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-2">
         <div className="aspect-4/3 w-full overflow-hidden rounded-2xl">
@@ -31,7 +31,7 @@ export default function Location() {
               {locationInfo.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
                   <dt className="text-h5 text-malt">{item.label}</dt>
-                  <dd className="text-p">
+                  <dd className="text-p whitespace-pre-line">
                     {item.href ? (
                       <a
                         href={item.href}
