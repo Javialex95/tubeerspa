@@ -29,7 +29,7 @@ export const site = {
   geo: { latitude: 5.5450838, longitude: -73.3477837 },
   // Resumen de opiniones de Google (actualizar cuando cambie).
   rating: { value: 4.9, count: 239 },
-  priceRange: "Desde $90.000 COP por persona",
+  priceRange: "Desde $80.000 COP por persona",
   // Horario de Google Business Profile. Viernes y sábado: abierto las 24 horas.
   hours: [
     {

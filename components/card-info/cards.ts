@@ -37,6 +37,10 @@ export const experience = {
       description: "Recepción y preparación para tu ritual.",
     },
     {
+      title: "Masajes",
+      description: "Masaje relajante con aceite de lúpulo para soltar la tensión.",
+    },
+    {
       title: "Jacuzzi de cerveza",
       description: "Sumérgete en aguas cálidas con ingredientes naturales.",
     },
@@ -68,7 +72,7 @@ export const plans = {
   ],
   price: {
     prefix: "Desde",
-    amount: "$90.000",
+    amount: "$80.000",
     suffix: "por persona",
   },
   booking: {

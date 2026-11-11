@@ -38,7 +38,7 @@ export const faqs: Faq[] = [
   },
   {
     question: "¿Cuánto cuestan los planes?",
-    answer: `Las experiencias empiezan desde ${formatPrice(90000)} por persona. El precio final depende del formato (individual, pareja, grupal o familiar), la duración y los servicios incluidos.`,
+    answer: `Las experiencias empiezan desde ${formatPrice(80000)} por persona. El precio final depende del formato (individual, pareja, grupal o familiar), la duración y los servicios incluidos.`,
   },
   {
     question: "¿Qué formatos de plan tienen?",
