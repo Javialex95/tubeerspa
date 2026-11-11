@@ -4,7 +4,7 @@ export const site = {
   url: "https://tubeerspa.co",
   title: "TuBeer Spa · Spa cervecero en Tunja",
   description:
-    "Spa cervecero en Tunja, Boyacá: jacuzzi espumoso, sauna con esencia cervecera, masajes con aceite de lúpulo y cata de cerveza. Planes para individual, pareja, grupo y familia. Reserva por WhatsApp.",
+    "Spa cervecero en Tunja, Boyacá: jacuzzi espumoso, sauna con esencia cervecera, masaje relajante sedativo ritual del lúpulo y cata de cerveza. Planes para individual, pareja, grupo y familia. Reserva por WhatsApp.",
   keywords: [
     "spa cervecero",
     "spa en Tunja",
@@ -30,57 +30,33 @@ export const site = {
   // Resumen de opiniones de Google (actualizar cuando cambie).
   rating: { value: 4.9, count: 239 },
   priceRange: "Desde $80.000 COP por persona",
-  // Horario de Google Business Profile. Viernes y sábado: abierto las 24 horas.
+  // Horario de atención. Los recargos se muestran en la sección Visítanos.
   hours: [
     {
-      day: "Monday",
-      label: "Lunes",
-      opens: "09:30",
-      closes: "22:00",
-      text: "9:30 a.m. – 10:00 p.m.",
-    },
-    {
-      day: "Tuesday",
-      label: "Martes",
+      days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      label: "Lunes a sábado",
       opens: "08:00",
-      closes: "22:30",
-      text: "8:00 a.m. – 10:30 p.m.",
+      closes: "20:00",
+      text: "8:00 a.m. – 8:00 p.m.",
     },
     {
-      day: "Wednesday",
-      label: "Miércoles",
-      opens: "08:00",
-      closes: "22:00",
-      text: "8:00 a.m. – 10:00 p.m.",
+      days: ["Sunday"],
+      label: "Domingos",
+      opens: "09:00",
+      closes: "17:00",
+      text: "9:00 a.m. – 5:00 p.m.",
     },
-    {
-      day: "Thursday",
-      label: "Jueves",
-      opens: "08:00",
-      closes: "22:30",
-      text: "8:00 a.m. – 10:30 p.m.",
-    },
-    {
-      day: "Friday",
-      label: "Viernes",
-      opens: "00:00",
-      closes: "23:59",
-      text: "Abierto las 24 horas",
-    },
-    {
-      day: "Saturday",
-      label: "Sábado",
-      opens: "00:00",
-      closes: "23:59",
-      text: "Abierto las 24 horas",
-    },
-    {
-      day: "Sunday",
-      label: "Domingo",
-      opens: "09:30",
-      closes: "18:00",
-      text: "9:30 a.m. – 6:00 p.m.",
-    },
+  ],
+  hoursNotes: [
+    "Las reservas de lunes a sábado en horarios de 9:00 p. m. y 10:00 p. m. tienen un recargo adicional del 10% sobre el valor del plan.",
+    "Los domingos, las reservas en horarios de 6:00 p. m., 7:00 p. m. y 8:00 p. m. tienen un recargo del 10%.",
   ],
   themeColor: "#14301e",
 } as const;

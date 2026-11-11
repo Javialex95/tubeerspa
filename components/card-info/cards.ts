@@ -37,8 +37,8 @@ export const experience = {
       description: "Recepción y preparación para tu ritual.",
     },
     {
-      title: "Masajes",
-      description: "Masaje relajante con aceite de lúpulo para soltar la tensión.",
+      title: "Masaje relajante sedativo ritual del lúpulo",
+      description: "Masaje relajante sedativo ritual del lúpulo para soltar la tensión.",
     },
     {
       title: "Jacuzzi de cerveza",
@@ -54,7 +54,7 @@ export const experience = {
     },
     {
       title: "Cierre",
-      description: "Hidratación y despedida de tu experiencia.",
+      description: "Despedida de tu experiencia.",
     },
   ] satisfies Item[],
 };
@@ -68,7 +68,7 @@ export const plans = {
     "Plan Pareja",
     "Cheers Experience",
     "Circuito Cervecero",
-    "Masajes relajantes",
+    "Masaje relajante sedativo ritual del lúpulo",
   ],
   price: {
     prefix: "Desde",

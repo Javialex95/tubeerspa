@@ -19,7 +19,10 @@ export const locationInfo: { label: string; value: string; href?: string }[] = [
   },
   {
     label: "Horario",
-    value: site.hours.map((h) => `${h.label}: ${h.text}`).join("\n"),
+    value:
+      site.hours.map((h) => `${h.label}: ${h.text}`).join("\n") +
+      "\n\nImportante:\n" +
+      site.hoursNotes.map((n) => `• ${n}`).join("\n"),
   },
   { label: "WhatsApp", value: booking.phone, href: booking.href },
   { label: "Instagram", value: "@tubeerspa", href: site.instagram },

@@ -53,7 +53,7 @@ export default function JsonLd() {
         geo: { "@type": "GeoCoordinates", ...site.geo },
         openingHoursSpecification: site.hours.map((h) => ({
           "@type": "OpeningHoursSpecification",
-          dayOfWeek: h.day,
+          dayOfWeek: [...h.days],
           opens: h.opens,
           closes: h.closes,
         })),

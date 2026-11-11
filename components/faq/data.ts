@@ -16,7 +16,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Qué es un Beer Spa?",
     answer:
-      "TuBeer Spa, en Tunja, Boyacá, transforma ingredientes naturales como malta, lúpulo y levadura en una experiencia privada de bienestar pensada para relajar cuerpo y mente. Combina masajes con aceite de lúpulo, sauna con esencia cervecera, jacuzzi espumoso y cata de cerveza.",
+      "TuBeer Spa, en Tunja, Boyacá, transforma ingredientes naturales como malta, lúpulo y levadura en una experiencia privada de bienestar pensada para relajar cuerpo y mente. Combina el masaje relajante sedativo ritual del lúpulo, sauna con esencia cervecera, jacuzzi espumoso y cata de cerveza.",
   },
   {
     question: "¿Cómo es la experiencia en TuBeer Spa?",

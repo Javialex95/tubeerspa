@@ -25,7 +25,7 @@ export type Format = {
 // Servicios que se repiten en casi todos los planes.
 const S = {
   cata: "Cata cervecera",
-  masaje: "Masaje relajante ritual del lúpulo",
+  masaje: "Masaje relajante sedativo ritual del lúpulo",
   capilar: "Masaje capilar",
   zen: "Zen volcánico",
   sensorial: "Relajación sensorial",
@@ -183,7 +183,7 @@ export const formats: Format[] = [
         plans: [
           {
             name: "Plan Familiar",
-            includes: ["Masaje relajante cuerpo completo / masaje infantil", S.capilar, S.zen, S.sensorial, S.jacuzzi, "1 bebida por persona (malteada o jugo para niños)"],
+            includes: ["Masaje relajante sedativo ritual del lúpulo cuerpo completo / masaje infantil", S.capilar, S.zen, S.sensorial, S.jacuzzi, "1 bebida por persona (malteada o jugo para niños)"],
             duration: "2:30 h",
             prices: [{ label: "Adulto", amount: 165000 }, { label: "Menor", amount: 90000 }],
           },
