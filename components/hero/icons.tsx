@@ -14,6 +14,7 @@ export function Chevron({ direction }: { direction: "left" | "right" }) {
   );
 }
 
+
 export function PauseIcon() {
   return (
     <svg
